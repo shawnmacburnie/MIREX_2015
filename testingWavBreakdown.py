@@ -19,5 +19,5 @@ def breakdown_file(file_name,n_second):
 
 
 
-breakdown_file('train1.wav', 5, )
+breakdown_file('train1.wav', 5)
 
