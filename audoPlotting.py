@@ -48,10 +48,13 @@ def show_magnitued(file_name):
 
 def plot_sampledBeats(sample_rate, file_name, maxValue):
     lines = [line.rstrip('\n') for line in open(file_name.replace('.wav', '.txt'))]
+    maxValue = 0
+    index = 0
     for line in lines:
         domain = []
         points = line.split('\t')
-        range = [maxValue] * len(points)
+        range = [maxValue + index] * len(points)
+        index += 1000
         for point in points:
             domain += [float(point) * sample_rate]
         plt.plot(domain,range, 'ko')
@@ -60,5 +63,5 @@ def seconds_to_sample(seconds, sampleRate):
     return seconds * sampleRate
 
 
-show_amplitude("train1.wav")
+show_amplitude("train5.wav")
 # show_magnitued("train1.wav")
